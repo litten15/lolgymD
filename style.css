@@ -575,4 +575,16 @@ ul {
     input[type=button] {
         margin-top: 650px;
     }
+    
+    input[type=searchBar] {
+        width: 100%;
+    }
+    
+    select {
+        width: 100%;
+    }
+    
+    input[type=submit] {
+        width: 100%;
+    }
 }
