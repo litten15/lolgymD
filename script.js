@@ -12,6 +12,8 @@ function hide () {
     document.getElementById('stats').style.display = "none";
     document.getElementById('pageTwo').style.display = "none";
     document.getElementById('staticPlan').style.display = "none";
+    document.getElementById('keepUp').style.display = "none";
+    document.getElementById('helpHider').style.display = "none";
 }
 
 function submitInfo() {
@@ -30,9 +32,11 @@ function submitInfo() {
     if (SUMMONER_NAME !== "") {
         
         $.ajax({
-        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=771f5509-7e01-4f41-9ec2-69e7b2158c66',
+        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
-        dataType: 'json',
+//        dataType: 'json',
+        dataType: 'json', 
+      
         data: {
         },
         success: function(json) {
@@ -74,7 +78,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
     if (summonerID !== "") {
         
         $.ajax({
-        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=771f5509-7e01-4f41-9ec2-69e7b2158c66',
+        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -152,7 +156,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
     if (summonerID !== "") {
         
         $.ajax({
-        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=771f5509-7e01-4f41-9ec2-69e7b2158c66',
+        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -425,31 +429,31 @@ function leagueAverage(){
 }
 
 function bronze () {
-    bronzeCS = 100;
+    bronzeCS = 114;
     document.getElementById('leagueCs').innerHTML = bronzeCS;
     
-    bronzeGold = 9000;
+    bronzeGold = 10414;
     document.getElementById('leagueGold').innerHTML = bronzeGold;
     
-    bronzeWinrate = 45;
+    bronzeWinrate = 32;
     document.getElementById('leagueWinrate').innerHTML = bronzeWinrate;
     
-    bronzeKills = 6;
+    bronzeKills = 6.2;
     document.getElementById('leagueKills').innerHTML = bronzeKills;
     
     bronzeTurrets = 0.5;
     document.getElementById('leagueTurrets').innerHTML = bronzeTurrets;
     
-    bronzeDeaths = 6;
+    bronzeDeaths = 6.7;
     document.getElementById('leagueDeaths').innerHTML = bronzeDeaths;
     
-    bronzeAssists = 6;
+    bronzeAssists = 7.2;
     document.getElementById('leagueAssists').innerHTML = bronzeAssists;
     
-    bronzeDmgD = 30000;
+    bronzeDmgD = 97596;
     document.getElementById('leagueDmgD').innerHTML = bronzeDmgD;
     
-    bronzeDmgT = 25000;
+    bronzeDmgT = 21021;
     document.getElementById('leagueDmgT').innerHTML = bronzeDmgT;
     
 //    alert(averageCS);
@@ -515,36 +519,36 @@ function bronze () {
     else {
         document.getElementById('winrate').style.color = "red";
     }
-    gameplan();
+    generateGamePlan();
     
 }
 
 function silver () {
-    silverCS = 100;
+    silverCS = 116;
     document.getElementById('leagueCs').innerHTML = silverCS;
     
-    silverGold = 9000;
+    silverGold = 12174;
     document.getElementById('leagueGold').innerHTML = silverGold;
     
-    silverWinrate = 45;
+    silverWinrate = 49;
     document.getElementById('leagueWinrate').innerHTML = silverWinrate;
     
-    silverKills = 6;
+    silverKills = 5.6;
     document.getElementById('leagueKills').innerHTML = silverKills;
     
-    silverTurrets = 0.5;
+    silverTurrets = 0.9;
     document.getElementById('leagueTurrets').innerHTML = silverTurrets;
     
-    silverDeaths = 6;
+    silverDeaths = 5.6;
     document.getElementById('leagueDeaths').innerHTML = silverDeaths;
     
-    silverAssists = 6;
+    silverAssists = 9.5;
     document.getElementById('leagueAssists').innerHTML = silverAssists;
     
-    silverDmgD = 30000;
+    silverDmgD = 117422;
     document.getElementById('leagueDmgD').innerHTML = silverDmgD;
     
-    silverDmgT = 25000;
+    silverDmgT = 23462;
     document.getElementById('leagueDmgT').innerHTML = silverDmgT;
     
 //    alert(averageCS);
@@ -616,31 +620,31 @@ function silver () {
 
 function goldeen() {
     
-    goldCS = 100;
+    goldCS = 50;
     document.getElementById('leagueCs').innerHTML = goldCS;
     
-    goldGold = 9000;
+    goldGold = 12889;
     document.getElementById('leagueGold').innerHTML = goldGold;
     
-    goldWinrate = 45;
+    goldWinrate = 50;
     document.getElementById('leagueWinrate').innerHTML = goldWinrate;
     
-    goldKills = 6;
+    goldKills = 6.4;
     document.getElementById('leagueKills').innerHTML = goldKills;
     
-    goldTurrets = 0.5;
+    goldTurrets = 0.9;
     document.getElementById('leagueTurrets').innerHTML = goldTurrets;
     
-    goldDeaths = 6;
+    goldDeaths = 6.5;
     document.getElementById('leagueDeaths').innerHTML = goldDeaths;
     
-    goldAssists = 6;
+    goldAssists = 9.3;
     document.getElementById('leagueAssists').innerHTML = goldAssists;
     
-    goldDmgD = 30000;
+    goldDmgD = 138163;
     document.getElementById('leagueDmgD').innerHTML = goldDmgD;
     
-    goldDmgT = 25000;
+    goldDmgT = 27223;
     document.getElementById('leagueDmgT').innerHTML = goldDmgT;
     
 //    alert(averageCS);
@@ -711,31 +715,31 @@ function goldeen() {
 }
 
 function platinum () {
-    platinumCS = 100;
+    platinumCS = 151;
     document.getElementById('leagueCs').innerHTML = platinumCS;
     
-    platinumGold = 9000;
+    platinumGold = 12565;
     document.getElementById('leagueGold').innerHTML = platinumGold;
     
-    platinumWinrate = 45;
+    platinumWinrate = 52;
     document.getElementById('leagueWinrate').innerHTML = platinumWinrate;
     
-    platinumKills = 6;
+    platinumKills = 6.6;
     document.getElementById('leagueKills').innerHTML = platinumKills;
     
-    platinumTurrets = 0.5;
+    platinumTurrets = 1.1;
     document.getElementById('leagueTurrets').innerHTML = platinumTurrets;
     
-    platinumDeaths = 6;
+    platinumDeaths = 5.8;
     document.getElementById('leagueDeaths').innerHTML = platinumDeaths;
     
-    platinumAssists = 6;
+    platinumAssists = 8.5;
     document.getElementById('leagueAssists').innerHTML = platinumAssists;
     
-    platinumDmgD = 30000;
+    platinumDmgD = 145151;
     document.getElementById('leagueDmgD').innerHTML = platinumDmgD;
     
-    platinumDmgT = 25000;
+    platinumDmgT = 24613;
     document.getElementById('leagueDmgT').innerHTML = platinumDmgT;
     
 //    alert(averageCS);
@@ -806,31 +810,31 @@ function platinum () {
 }
 
 function diamond () {
-    diamondCS = 100;
+    diamondCS = 151;
     document.getElementById('leagueCs').innerHTML = diamondCS;
     
-    diamondGold = 9000;
+    diamondGold = 12565;
     document.getElementById('leagueGold').innerHTML = diamondGold;
     
-    diamondWinrate = 45;
+    diamondWinrate = 52;
     document.getElementById('leagueWinrate').innerHTML = diamondWinrate;
     
-    diamondKills = 6;
+    diamondKills = 6.2;
     document.getElementById('leagueKills').innerHTML = diamondKills;
     
-    diamondTurrets = 0.5;
+    diamondTurrets = 1;
     document.getElementById('leagueTurrets').innerHTML = diamondTurrets;
     
-    diamondDeaths = 6;
+    diamondDeaths = 5.4;
     document.getElementById('leagueDeaths').innerHTML = diamondDeaths;
     
-    diamondAssists = 6;
+    diamondAssists = 7.9;
     document.getElementById('leagueAssists').innerHTML = diamondAssists;
     
-    diamondDmgD = 30000;
+    diamondDmgD = 130044;
     document.getElementById('leagueDmgD').innerHTML = diamondDmgD;
     
-    diamondDmgT = 25000;
+    diamondDmgT = 22723;
     document.getElementById('leagueDmgT').innerHTML = diamondDmgT;
     
 //    alert(averageCS);
@@ -1100,33 +1104,46 @@ function gamePlan () {
     hintCount = 0;
     document.getElementById('staticPlan').style.display = "block";
     document.getElementById('planPage').style.display = "block";
+    document.getElementById('keepUp').style.display = "block";
     document.getElementById('usernamePlan').innerHTML = sumName;
+    document.getElementById('helpHider').style.display = "block";
     
-    
+    green = "";
+
     if (document.getElementById('kills').style.color == "red" && hintCount < 4) {
         document.getElementById('killsContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Kills |  ";
     }
     
     if (document.getElementById('cs').style.color == "red" && hintCount < 4) {
         document.getElementById('csContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "CS/Game |  ";
     }
     
     if (document.getElementById('aGold').style.color == "red" && hintCount < 4) {
         document.getElementById('goldContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Gold/Game |  ";
     }
     
     
     if (document.getElementById('dmgD').style.color == "red" && hintCount < 4) {
         document.getElementById('dmgDContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Damage Dealt/Game |  ";
     }
     
     if (document.getElementById('dmgT').style.color == "red" && hintCount < 4) {
         document.getElementById('dmgTContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Damage Taken/Game |  ";
     }
     
     
@@ -1136,22 +1153,43 @@ function gamePlan () {
         hintCount = hintCount + 1;
 //        return(hintCount);
 //        alert(hintCount);
+    } else {
+        green = green + "Overall Winrate |  ";
     }
     
     
     if (document.getElementById('deaths').style.color == "red" && hintCount < 4) {
         document.getElementById('deathsContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Deaths |  ";
+        
     }
     
     if (document.getElementById('assists').style.color == "red" && hintCount < 4) {
         document.getElementById('assistsContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Assists |  ";
+       
     }
     
     if (document.getElementById('turrets').style.color == "red" && hintCount < 4) {
         document.getElementById('turretsContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+    } else {
+        green = green + "Turrets Taken/Game |  ";
+    }
+    
+    document.getElementById('killsGreen').innerHTML = green;
+    
+    if (hintCount == 1 || hintCount == 3) {
+                document.getElementsByClassName("helpContent")[1].style.width = "99%";
+                document.getElementsByClassName("helpContent")[3].style.width = "99%";
+//            var elm = getElementsByClassName("helpContent")[0];
+//            if (elm) {
+//            elm.style.width = "99%";
+//            }
     }
     
 }

@@ -471,3 +471,108 @@ ul {
     padding: 0;
     margin: 6px;
 }
+
+.keepUpBody {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E1DDDD;
+    height: auto;
+    margin-top: 4px;
+}
+
+.h4 {
+    margin: 0;
+    padding: 0;
+    font-family: "lato", sans-serif;
+    font-size: 15px;
+    color: #222222;
+    font-weight: bold;
+    padding-left: 7px;
+    padding:10px;
+}
+
+/*responsive*/
+
+@media only screen and (max-width: 960px) {
+    #headingOne {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    
+    
+    .dataBox, .dataBoxTwo, .dataBoxThree, .dataBoxFour, .dataBoxFive, .dataBoxSix {
+        width: auto;
+    }
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+    .dataBox, .dataBoxTwo, .dataBoxThree, .dataBoxFour, .dataBoxFive, .dataBoxSix {
+        min-height: 85px;
+    }
+    .winsData{
+        width: 100%;
+    }
+    
+    .titleContent {
+        width: 100%;
+    }
+    input[type=button] {
+        width: 60%;
+        margin-top: 475px;
+    }
+    
+    .blitzBanner {
+        visibility: hidden;
+    }
+    
+    .plan {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 590px) {
+    .divider.spacer {
+        display: none;
+    }
+    .divider {
+        width: 49%;
+    }
+    
+    .bannerImg {
+        visibility: hidden;
+    }
+    
+    body {
+        background-color: #eeeeee;
+    }
+    
+    input[type=searchBar] {
+        width: 250px;
+    }
+    
+    input[type=submit] {
+        margin-bottom: 25px;
+    }
+    input[type=button] {
+       
+        margin-top: 550px;
+    }
+    
+
+}
+
+@media only screen and (max-width: 500px) {
+    .helpContent {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 375px) {
+    input[type=button] {
+        margin-top: 650px;
+    }
+}
