@@ -578,13 +578,16 @@ ul {
     
     input[type=searchBar] {
         width: 100%;
+        margin-bottom: 10px;
     }
     
     select {
         width: 100%;
+        margin-bottom:  10px;
     }
     
     input[type=submit] {
         width: 100%;
+        margin-bottom: 10px;
     }
 }
