@@ -1,3 +1,4 @@
+
 body {
     margin: 0px;
 }
@@ -548,7 +549,7 @@ ul {
     }
     
     body {
-        background-color: #eeeeee;
+        background-color: #f7f7f7;
     }
     
     input[type=searchBar] {
@@ -590,4 +591,11 @@ ul {
         width: 100%;
         margin-bottom: 10px;
     }
+}
+
+#loader {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      margin: 0;
 }

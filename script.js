@@ -1,3 +1,32 @@
+//
+//
+//var myVar;
+//
+//function loader() {
+//    myVar = setInterval(alertFunc, 100);
+//}
+//
+//function alertFunc() {
+//    
+//    if (document.getElementById('planPage').style.display == "block") {
+//        document.getElementById('loader').display = "block";
+//    } 
+//    document.getElementById
+//    if (document.getElementById('planPage').style.display == "none"){
+//        document.getElementById('loader').display = "none";
+//    }
+//    
+//    
+//}
+
+//function loader(){
+//    $(window).on(function() {      //Do the code in the {}s when the window has loaded 
+//    $("#loader").fadeOut("fast");  //Fade out the #loader div
+//});
+//}
+
+
+
 function hide () {
     document.getElementById('generateGamePlan').style.display = "none";
     document.getElementById('winrateContent').style.display = "none";
@@ -32,7 +61,7 @@ function submitInfo() {
     if (SUMMONER_NAME !== "") {
         
         $.ajax({
-        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
 //        dataType: 'json',
         dataType: 'json', 
@@ -78,7 +107,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
     if (summonerID !== "") {
         
         $.ajax({
-        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -156,7 +185,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
     if (summonerID !== "") {
         
         $.ajax({
-        url: 'https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -904,31 +933,31 @@ function diamond () {
 }
 
 function master () {
-    masterCS = 100;
+    masterCS = 148;
     document.getElementById('leagueCs').innerHTML = masterCS;
     
-    masterGold = 9000;
+    masterGold = 11158;
     document.getElementById('leagueGold').innerHTML = masterGold;
     
-    masterWinrate = 45;
+    masterWinrate = 54;
     document.getElementById('leagueWinrate').innerHTML = masterWinrate;
     
-    masterKills = 6;
+    masterKills = 6.2;
     document.getElementById('leagueKills').innerHTML = masterKills;
     
-    masterTurrets = 0.5;
+    masterTurrets = 1;
     document.getElementById('leagueTurrets').innerHTML = masterTurrets;
     
-    masterDeaths = 6;
+    masterDeaths = 5.1;
     document.getElementById('leagueDeaths').innerHTML = masterDeaths;
     
-    masterAssists = 6;
+    masterAssists = 8.1;
     document.getElementById('leagueAssists').innerHTML = masterAssists;
     
-    masterDmgD = 30000;
+    masterDmgD = 122672;
     document.getElementById('leagueDmgD').innerHTML = masterDmgD;
     
-    masterDmgT = 25000;
+    masterDmgT = 22642;
     document.getElementById('leagueDmgT').innerHTML = masterDmgT;
     
 //    alert(averageCS);
@@ -998,31 +1027,31 @@ function master () {
 }
 
 function challenger () {
-    challengerCS = 100;
+    challengerCS = 136;
     document.getElementById('leagueCs').innerHTML = challengerCS;
     
-    challengerGold = 9000;
+    challengerGold = 11226;
     document.getElementById('leagueGold').innerHTML = challengerGold;
     
-    challengerWinrate = 45;
+    challengerWinrate = 54;
     document.getElementById('leagueWinrate').innerHTML = challengerWinrate;
     
-    challengerKills = 6;
+    challengerKills = 5.1;
     document.getElementById('leagueKills').innerHTML = challengerKills;
     
-    challengerTurrets = 0.5;
+    challengerTurrets = 1;
     document.getElementById('leagueTurrets').innerHTML = challengerTurrets;
     
-    challengerDeaths = 6;
+    challengerDeaths = 5;
     document.getElementById('leagueDeaths').innerHTML = challengerDeaths;
     
-    challengerAssists = 6;
+    challengerAssists = 8.2;
     document.getElementById('leagueAssists').innerHTML = challengerAssists;
     
-    challengerDmgD = 30000;
+    challengerDmgD = 116102;
     document.getElementById('leagueDmgD').innerHTML = challengerDmgD;
     
-    challengerDmgT = 25000;
+    challengerDmgT = 21599;
     document.getElementById('leagueDmgT').innerHTML = challengerDmgT;
     
 //    alert(averageCS);
@@ -1103,6 +1132,7 @@ function gamePlan () {
 //    alert(value);
     hintCount = 0;
     document.getElementById('staticPlan').style.display = "block";
+  
     document.getElementById('planPage').style.display = "block";
     document.getElementById('keepUp').style.display = "block";
     document.getElementById('usernamePlan').innerHTML = sumName;
