@@ -1,3 +1,6 @@
+html {
+    width: 100%;
+}
 
 body {
     margin: 0px;
@@ -9,6 +12,10 @@ body {
 div {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#pagetwo {
+    width: 100%;
 }
 
 .logo {
@@ -272,6 +279,7 @@ input[type=button] {
 .planWrapper {
     position:relative;
     display: inline-block;
+    width:100%;
 }
 
 .plan {
@@ -537,9 +545,11 @@ div#loader {
 @media only screen and (max-width: 650px) {
     
     
+/*
     .dataBox, .dataBoxTwo, .dataBoxThree, .dataBoxFour, .dataBoxFive, .dataBoxSix {
         width: auto;
     }
+*/
 }
 
 
@@ -550,6 +560,8 @@ div#loader {
     }
     .winsData{
         width: 100%;
+        display: flex;
+        align-content: stretch;
     }
     
     .titleContent {
@@ -619,7 +631,7 @@ div#loader {
     }
     input[type=button] {
        
-        margin-top: 550px;
+        margin-top: 475px;
     }
     
     div#loader {
