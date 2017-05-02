@@ -630,7 +630,7 @@ div#loader {
 
 @media only screen and (max-width: 500px) {
     .helpContent {
-        width: 100%;
+        width: 98%;
     }
     ul{
         min-height: 0px;
