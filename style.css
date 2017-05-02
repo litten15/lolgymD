@@ -380,6 +380,7 @@ ul {
     font-family: "lato", sans-serif;
     font-size: 12px;
     min-height: 90px;
+    margin-right: 5px;
 }
 
 .videoLink {
@@ -552,7 +553,12 @@ div#loader {
 */
 }
 
-
+@media only screen and (min-width: 1100px) {
+    .logoImg {
+/*        margin-right: auto;*/
+/*        margin-left: inherit;*/
+    }
+}
 
 @media only screen and (max-width: 1100px) {
     .dataBox, .dataBoxTwo, .dataBoxThree, .dataBoxFour, .dataBoxFive, .dataBoxSix {
@@ -588,6 +594,11 @@ div#loader {
     .loadingText {
         margin-top: 67px;
     }
+    
+    .logoImg {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -601,9 +612,32 @@ div#loader {
     #inputContainer {
         top:48%;
     }
+    .rankText {
+        display: block;
+    }
+    .fiths {
+        width: 25%;
+    }
+     div#loader {
+        background-color: #8abcec;
+        border-radius: 40px;
+        top: 210px;
+    }
+    
+    .loadingText {
+        display: none;
+    }
+    
 }
 
-
+@media only screen and (max-width: 690px) {
+    .helpContent {
+        width: 98%;
+    }
+    ul{
+        min-height: 0px;
+    }
+}
 
 @media only screen and (max-width: 590px) {
     
@@ -634,16 +668,7 @@ div#loader {
         margin-top: 475px;
     }
     
-    div#loader {
-        background-color: #8abcec;
-        border-radius: 40px;
-        top: 210px;
-    }
-    
-    .loadingText {
-        display: none;
-    }
-    
+   
     .information {
         margin-top:50px;
     }
@@ -652,12 +677,14 @@ div#loader {
 }
 
 @media only screen and (max-width: 500px) {
+/*
     .helpContent {
         width: 98%;
     }
     ul{
         min-height: 0px;
     }
+*/
     .planH1 {
         font-size: 15px;
     }

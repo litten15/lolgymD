@@ -111,7 +111,7 @@ function submitInfo() {
 function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
         document.getElementById('pageOne').style.display = "none";
         document.getElementById('pageTwo').style.display = "block";
-        document.getElementById('logoImg').style.marginLeft = "inherit";
+//        document.getElementById('logoImg').style.marginLeft = "inherit";
         document.getElementById('stats').style.display = "block";
 //    alert(SERVER);
 //    alert(SUMMONER_NAME);
