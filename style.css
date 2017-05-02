@@ -137,6 +137,7 @@ input[type=searchBar] {
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     padding-left: 10px;
+    border-radius: 0px;
 }
 
 input[type=submit] {
@@ -150,6 +151,7 @@ input[type=submit] {
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     letter-spacing: 2px;
+    border-radius: 0px;
 }
 
 input[type=button] {
@@ -165,6 +167,7 @@ input[type=button] {
     text-align: center;
     margin-top: 350px;
     margin-bottom: 20px;
+    border-radius: 0px;
     
 }
 
@@ -675,3 +678,6 @@ div#loader {
     }
 }
 
+.bodyCon {
+    width: 375px;
+}
