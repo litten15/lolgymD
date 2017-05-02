@@ -137,7 +137,7 @@ input[type=searchBar] {
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     padding-left: 10px;
-    
+    -webkit-appearance: none;
     -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
 }
 
@@ -153,6 +153,7 @@ input[type=submit] {
     font-size: 20px;
     letter-spacing: 2px;
     border-radius: 0px;
+    -webkit-appearance: none;
      -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
 }
 
@@ -170,6 +171,7 @@ input[type=button] {
     margin-top: 350px;
     margin-bottom: 20px;
     border-radius: 0px;
+    -webkit-appearance: none;
      -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
     
 }
