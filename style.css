@@ -650,6 +650,10 @@ div#loader {
     input[type=searchBar] {
         width: 100%;
         margin-bottom: 10px;
+        background-image: none;
+        background-position: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     
     select {
@@ -660,6 +664,14 @@ div#loader {
     input[type=submit] {
         width: 100%;
         margin-bottom: 10px;
+    }
+    
+    .information {
+        margin-top: 75px;
+    }
+    
+    .logo {
+        margin-bottom: 25px;
     }
 }
 
