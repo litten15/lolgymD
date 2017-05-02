@@ -14,6 +14,9 @@
 
 </head>
 <body onload="hide();">
+    <div id="loader" style="display: none;">
+<p class="loadingText">LOADING</p>
+              </div>
     <div class="planWrapper">
     
 <div class="logo">
@@ -41,7 +44,8 @@
                   <option value="las">LAS</option>
                 </select><br/>
     
-<input type="submit" value="SEARCH" onclick="submitInfo();clearerror();"/>
+<input type="submit" id="searchloader" value="SEARCH" onclick="submitInfo();clearerror();"/>
+            
     <span id="serverType"></span>
     <span id="sumName"></span>
     

@@ -27,6 +27,7 @@
 
 
 
+
 function hide () {
     document.getElementById('generateGamePlan').style.display = "none";
     document.getElementById('winrateContent').style.display = "none";
@@ -43,9 +44,17 @@ function hide () {
     document.getElementById('staticPlan').style.display = "none";
     document.getElementById('keepUp').style.display = "none";
     document.getElementById('helpHider').style.display = "none";
+    $("#loader").hide();
 }
 
 function submitInfo() {
+    
+    
+
+    
+         
+    
+   
     
     var SUMMONER_NAME_UI = "";
     SUMMONER_NAME_UI = $("#userName").val();
@@ -59,7 +68,8 @@ function submitInfo() {
 //    summonerLookUp(SERVER, SUMMONER_NAME);
     
     if (SUMMONER_NAME !== "") {
-        
+        $("#loader").fadeIn(500);
+        //.delay(6000).fadeOut(500);
         $.ajax({
         url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
@@ -74,6 +84,7 @@ function submitInfo() {
             document.getElementById('sLevel').innerHTML = summonerLevel;
             fName = json[SUMMONER_NAME].name;
             document.getElementById('username').innerHTML = fName;
+//            $("#loader").fadeOut(500);
             sumName = fName;
 //            testing (SERVER);
 //            alert("it worked");
@@ -84,6 +95,7 @@ function submitInfo() {
         
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         document.getElementById('errors').innerHTML = "Error - could not find summoner";
+          document.getElementById('loader').style.display = "none";
       }
     });
 } 
@@ -105,7 +117,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
 //    alert(summonerID);
     
     if (summonerID !== "") {
-        
+        $("#loader").fadeOut(500);
         $.ajax({
         url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
@@ -172,6 +184,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
         
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         document.getElementById('errors').innerHTML = "Error - could not find summoner";
+          document.getElementById('loader').style.display = "none";
       }
     });
 } 
@@ -183,7 +196,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
 
 function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
     if (summonerID !== "") {
-        
+//        $("#loader").fadeOut(500);
         $.ajax({
         url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
@@ -362,6 +375,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
         
         error: function(XMLHttpRequest, textStatus, errorThrown) {
         document.getElementById('errors').innerHTML = "Error - could not find enough ranked games";
+        document.getElementById('loader').style.display = "none";
       }
     });
 } 
