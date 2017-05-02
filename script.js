@@ -50,11 +50,6 @@ function hide () {
 function submitInfo() {
     
     
-
-    
-         
-    
-   
     
     var SUMMONER_NAME_UI = "";
     SUMMONER_NAME_UI = $("#userName").val();
@@ -113,6 +108,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
         document.getElementById('pageTwo').style.display = "block";
 //        document.getElementById('logoImg').style.marginLeft = "inherit";
         document.getElementById('stats').style.display = "block";
+        document.getElementById('body').style.background = "#ffffff";
 //    alert(SERVER);
 //    alert(SUMMONER_NAME);
 //    alert(summonerID);

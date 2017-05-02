@@ -653,7 +653,8 @@ div#loader {
     }
     
     body {
-        background-image: linear-gradient(to top, #c0c8ce 50%, #ffffff 100%);
+/*        background-image: linear-gradient(to top, #c0c8ce 50%, #ffffff 100%);*/
+       background: radial-gradient(ellipse at center, #FFFFFF 0%, #496080 150%);
     }
     
     input[type=searchBar] {
@@ -698,11 +699,11 @@ div#loader {
     }
     
     input[type=searchBar] {
-        width: 100%;
+        width: 97%;
         margin-bottom: 10px;
         background-image: none;
         background-position: 0px;
-        padding-left: 0px;
+        padding-left: 10px;
         padding-right: 0px;
     }
     
