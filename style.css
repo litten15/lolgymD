@@ -360,7 +360,7 @@ ul {
     margin-bottom: 0;
     font-family: "lato", sans-serif;
     font-size: 12px;
-    min-height: 75px;
+    min-height: 90px;
 }
 
 .videoLink {
@@ -567,14 +567,23 @@ div#loader {
     }
 }
 
-@media only screen and (max-width: 664px) {
-    ul {
+@media only screen and (max-width: 1100px) {
+   ul {
         min-height: 90px;
+    } 
+}
+
+
+@media only screen and (max-width: 800px) {
+    #inputContainer {
+        top:48%;
     }
 }
 
 
+
 @media only screen and (max-width: 590px) {
+    
     .divider.spacer {
         display: none;
     }
@@ -587,10 +596,7 @@ div#loader {
     }
     
     body {
-       background: #bdc3c7;  /* fallback for old browsers */
-       background: -webkit-linear-gradient(to top, #82baf3, #e5edf3);  /* Chrome 10-25, Safari 5.1-6 */
-       background: linear-gradient(to top, #82baf3, #e5edf3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+        background-image: linear-gradient(to top, #c0c8ce 50%, #ffffff 100%);
     }
     
     input[type=searchBar] {
@@ -627,7 +633,13 @@ div#loader {
         width: 100%;
     }
     ul{
-        min-height: 0;
+        min-height: 0px;
+    }
+    .planH1 {
+        font-size: 15px;
+    }
+    .closeButton {
+        width: 28px;
     }
 }
 @media only screen and (max-width: 375px) {

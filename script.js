@@ -71,7 +71,8 @@ function submitInfo() {
         $("#loader").fadeIn(500);
         //.delay(6000).fadeOut(500);
         $.ajax({
-        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+//        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+            url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
 //        dataType: 'json',
         dataType: 'json', 
@@ -119,7 +120,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
     if (summonerID !== "") {
         $("#loader").fadeOut(500);
         $.ajax({
-        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+        url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -198,7 +199,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
     if (summonerID !== "") {
 //        $("#loader").fadeOut(500);
         $.ajax({
-        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+        url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
         dataType: 'json',
         data: {
@@ -214,6 +215,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
             if (entries == 1 && firstEntry == "RANKED_SOLO_5x5"){
 //                alert("only solo found");
                 document.getElementById('flexTier').innerHTML = "Flex rank not found";
+                document.getElementById('flexi').style.display = "none";
                 document.getElementById('flexRankIcon').style.display = "none";
                 
                 // get rank
@@ -249,6 +251,8 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
               else if (entries == 1 && firstEntry == "RANKED_FLEX_SR") {
 
                 document.getElementById('soloTier').innerHTML = "Solo rank not found";
+                document.getElementById('soloi').style.display = "none";
+                document.getElementById('soloRankIcon').style.display = "none";
                   
                 // get rank
                 flexTier = resp[summonerID][0].tier;
