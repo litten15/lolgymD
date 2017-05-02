@@ -667,7 +667,7 @@ div#loader {
 }
 @media only screen and (max-width: 375px) {
     input[type=button] {
-        margin-top: 650px;
+        margin-top: 475px;
     }
     
     input[type=searchBar] {
