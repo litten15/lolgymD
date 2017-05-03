@@ -103,6 +103,7 @@ select {
     border-radius: 0px;
     font-size: 15px;
     vertical-align: top;
+    background-color: white;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -687,6 +688,10 @@ div#loader {
     
     body{
         background: radial-gradient(ellipse at center, #FFFFFF 0%, #dee0e2 150%);
+    }
+    
+    .topBarContainer {
+        border-top: solid 15px;
     }
     
 }
