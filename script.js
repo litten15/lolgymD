@@ -82,6 +82,7 @@ function submitInfo() {
     }  
 }    
 
+//Function to find stats of a summoner
 function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
         
 //        Hide page one, display page two
@@ -91,7 +92,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
         document.getElementById('body').style.background = "#ffffff";
 
     if (summonerID !== "") {
-        $("#loader").fadeOut(500);
+        
         
 //        This API call fetches a different set of data - ranked game stats by summonerID with summonerID being fetched from previous API call
         $.ajax({
@@ -183,7 +184,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
         data: {
         },
         success: function(resp) {
-              
+              $("#loader").fadeOut(500);
 //            Defines variable to get amount of entries
             entries = resp[summonerID].length;
             
