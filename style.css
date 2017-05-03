@@ -104,6 +104,7 @@ select {
     font-size: 15px;
     vertical-align: top;
     background-color: white;
+    -webkit-appearance: none;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
