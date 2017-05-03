@@ -1,4 +1,33 @@
-//When the body loads, hide certain elements
+//
+//
+//var myVar;
+//
+//function loader() {
+//    myVar = setInterval(alertFunc, 100);
+//}
+//
+//function alertFunc() {
+//    
+//    if (document.getElementById('planPage').style.display == "block") {
+//        document.getElementById('loader').display = "block";
+//    } 
+//    document.getElementById
+//    if (document.getElementById('planPage').style.display == "none"){
+//        document.getElementById('loader').display = "none";
+//    }
+//    
+//    
+//}
+
+//function loader(){
+//    $(window).on(function() {      //Do the code in the {}s when the window has loaded 
+//    $("#loader").fadeOut("fast");  //Fade out the #loader div
+//});
+//}
+
+
+
+
 function hide () {
     document.getElementById('generateGamePlan').style.display = "none";
     document.getElementById('winrateContent').style.display = "none";
@@ -18,83 +47,74 @@ function hide () {
     $("#loader").hide();
 }
 
-//Triggered when user presses submit on form
 function submitInfo() {
     
-//    Validation, gets the first element
+    
+    
     var SUMMONER_NAME_UI = "";
     SUMMONER_NAME_UI = $("#userName").val();
     
     var SERVER = "";
     SERVER = $("#local").val();
     
-//    Validation, replaces spaces with no space and makes all lower case
     var SUMMONER_NAME = SUMMONER_NAME_UI.replace(" ", "");
     SUMMONER_NAME = SUMMONER_NAME.toLowerCase().trim();
     
-//    if summoner name is not empty, then
-    if (SUMMONER_NAME !== "") {
-        
-//        Hide the loader from user
-        $("#loader").fadeIn(500);
-        
-//        Call to the api, the url is combining proxy, server, summoner name and api key
-//        Fetches user general info from 'summoner name'
-        $.ajax({
-            url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
-            type: 'GET',
-            dataType: 'json', 
-            data: {},
-                
-//                On sucess, do the following with the returned data (json)
-                success: function(json) {
-                    
-//                    Look in JSON data and find attribute 'ID' belonging to partiuclar summoner name
-                    summonerID = json[SUMMONER_NAME].id;
-                    
-//                    Look in JSON data and find attribute 'summonerLevel' belonging to partiuclar summoner name
-                    summonerLevel = json[SUMMONER_NAME].summonerLevel;
-                    
-//                    Modify DOM with new data
-                    document.getElementById('sLevel').innerHTML = summonerLevel;
-                    
-//                      Finds the 'clean' name to be used in UI
-                    fName = json[SUMMONER_NAME].name;
-                    document.getElementById('username').innerHTML = fName;
-                    sumName = fName;
-                    
-//                    Start next function, passing data to be used
-                    rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI);
-                    },
-
-//                Show error message to user, also hide loader
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    document.getElementById('errors').innerHTML = "Error - could not find summoner";
-                    document.getElementById('loader').style.display = "none";
-                }
-        });
-    } 
+//    summonerLookUp(SERVER, SUMMONER_NAME);
     
-//    Alert if nothing entered in box
+    if (SUMMONER_NAME !== "") {
+        $("#loader").fadeIn(500);
+        //.delay(6000).fadeOut(500);
+        $.ajax({
+//        url: 'https://crossorigin.me/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+            url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.4/summoner/by-name/' + SUMMONER_NAME + '?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
+        type: 'GET',
+//        dataType: 'json',
+        dataType: 'json', 
+      
+        data: {
+        },
+        success: function(json) {
+            summonerID = json[SUMMONER_NAME].id;
+            summonerLevel = json[SUMMONER_NAME].summonerLevel;
+            document.getElementById('sLevel').innerHTML = summonerLevel;
+            fName = json[SUMMONER_NAME].name;
+            document.getElementById('username').innerHTML = fName;
+//            $("#loader").fadeOut(500);
+            sumName = fName;
+//            testing (SERVER);
+//            alert("it worked");
+            
+            rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI);
+            
+            },
+        
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        document.getElementById('errors').innerHTML = "Error - could not find summoner";
+          document.getElementById('loader').style.display = "none";
+      }
+    });
+} 
+
     else {
     alert("Please enter a summoner name");
     
-    }  
+}
+      
 }    
 
-//Function to find stats of a summoner
 function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
-        
-//        Hide page one, display page two
         document.getElementById('pageOne').style.display = "none";
         document.getElementById('pageTwo').style.display = "block";
+//        document.getElementById('logoImg').style.marginLeft = "inherit";
         document.getElementById('stats').style.display = "block";
         document.getElementById('body').style.background = "#ffffff";
-
+//    alert(SERVER);
+//    alert(SUMMONER_NAME);
+//    alert(summonerID);
+    
     if (summonerID !== "") {
-        
-        
-//        This API call fetches a different set of data - ranked game stats by summonerID with summonerID being fetched from previous API call
+        $("#loader").fadeOut(500);
         $.ajax({
         url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v1.3/stats/by-summoner/' + summonerID + '/ranked?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
@@ -102,25 +122,22 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
         data: {
         },
         success: function(resp) {
+//            alert(played);
+//            to fetch last file
+//            champs = resp.champions.length - 1;
+//            champid = resp.champions[]
             
-//            Loop for the length of entries in data
             for (var i = 0; i < resp.champions.length; i++) {
-                
-//                Find the entry with an ID of '0', when found, do the following
                 if (resp.champions[i].id == "0"){
+//                    alert("found");
                     
-//                    New variable equals value of totalMinionKills on entry of id '0'
                     cs = resp.champions[i].stats.totalMinionKills;
-//                    Divide by value played to get average 
                     averageCS = cs / played;
-//                    Round the average to nearest whole number
                     averageCS = Math.round(averageCS);
-//                    Update DOM with the value
                     document.getElementById('cs').innerHTML = averageCS;
                     
                     kills = resp.champions[i].stats.totalChampionKills;
                     averageKills = kills / played;
-//                    Round to the nearest 10
                     averageKills = Math.round(averageKills * 10) / 10;
                     document.getElementById('kills').innerHTML = averageKills;
                     
@@ -135,6 +152,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
                     document.getElementById('deaths').innerHTML = averageDeaths;
                     
                     dmgD = resp.champions[i].stats.totalDamageDealt;
+//                    alert(dmgD);
                     averageDmgD = dmgD / played;
                     averageDmgD = Math.round(averageDmgD);
                     document.getElementById('dmgD').innerHTML = averageDmgD;
@@ -154,7 +172,6 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
                     averageTurrets = Math.round(averageTurrets * 10) / 10;
                     document.getElementById('turrets').innerHTML = averageTurrets;
                     
-//                    Start next function
                     leagueAverage();
                 }
             }
@@ -162,10 +179,10 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
             document.getElementById('intro').style.display = "inline";
             },
         
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            document.getElementById('errors').innerHTML = "Error - could not find summoner";
-            document.getElementById('loader').style.display = "none";
-        }
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        document.getElementById('errors').innerHTML = "Error - could not find summoner";
+          document.getElementById('loader').style.display = "none";
+      }
     });
 } 
 
@@ -176,7 +193,7 @@ function summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played) {
 
 function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
     if (summonerID !== "") {
-//        Third API call, this one fetches what rank the user is, using SummonerID
+//        $("#loader").fadeOut(500);
         $.ajax({
         url: 'https://thingproxy.freeboard.io/fetch/https://' + SERVER + '.api.pvp.net/api/lol/' + SERVER + '/v2.5/league/by-summoner/' + summonerID + '/entry?api_key=RGAPI-e8a16828-f400-4e4c-9b8e-06483315a6ff',
         type: 'GET',
@@ -184,23 +201,20 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
         data: {
         },
         success: function(resp) {
-              $("#loader").fadeOut(500);
-//            Defines variable to get amount of entries
+              
             entries = resp[summonerID].length;
-            
-//            Value of data 'queue' for the first entry
             firstEntry = resp[summonerID][0].queue;
+//            alert(firstEntry);
+
             
-//            One entry means could be either flex q or solo q
-//            If they have one entry and the first one is solo then do the following
+             // do calcs for only solo
             if (entries == 1 && firstEntry == "RANKED_SOLO_5x5"){
-                
-//                Hide flex rank info
+//                alert("only solo found");
                 document.getElementById('flexTier').innerHTML = "Flex rank not found";
                 document.getElementById('flexi').style.display = "none";
                 document.getElementById('flexRankIcon').style.display = "none";
                 
-//                Fetches rank and defines it as solo rank, then updates the DOM
+                // get rank
                 soloTier = resp[summonerID][0].tier;
                 document.getElementById('soloTier').innerHTML = soloTier + " ";
                 soloDiv = resp[summonerID][0].entries[0].division;
@@ -208,37 +222,35 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
                 soloLp = resp[summonerID][0].entries[0].leaguePoints;
                 document.getElementById('soloLp').innerHTML = soloLp + "LP";
                 
-//                Finds total wins
+                // win ratio
                 wins = resp[summonerID][0].entries[0].wins;
+//                alert(wins);
                 document.getElementById('wins').innerHTML = wins;
                 
-//                Finds total losses
                 losses = resp[summonerID][0].entries[0].losses;
+//                alert(losses);
                 document.getElementById('losses').innerHTML = losses;
                 
-//                Calculates the total played altogether
                 played = wins + losses;
                 document.getElementById('played').innerHTML = played;
                 
-//                Calculates winrate
                 winrate = wins / (wins + losses) * 100;
                 winrate = Math.round(winrate);
                 document.getElementById('winrate').innerHTML = winrate + "%";
                 
                 flexTier = 0;
-                
-//                Start next function
                 decideRank(soloTier, flexTier);
                 
                 } 
             
-//              If only one entry found and it is flex, do same as above, but define flex rank not solo rank
+//                  alert("only flex found");
               else if (entries == 1 && firstEntry == "RANKED_FLEX_SR") {
 
                 document.getElementById('soloTier').innerHTML = "Solo rank not found";
                 document.getElementById('soloi').style.display = "none";
                 document.getElementById('soloRankIcon').style.display = "none";
                   
+                // get rank
                 flexTier = resp[summonerID][0].tier;
                 document.getElementById('flexTier').innerHTML = flexTier + " ";
                 flexDiv = resp[summonerID][0].entries[0].division;
@@ -246,10 +258,13 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
                 flexLp = resp[summonerID][0].entries[0].leaguePoints;
                 document.getElementById('flexLp').innerHTML = flexLp + "LP";
                 
+                // win ratio
                 wins = resp[summonerID][0].entries[0].wins;
+//                alert(wins);
                 document.getElementById('wins').innerHTML = wins;
                 
                 losses = resp[summonerID][0].entries[0].losses;
+//                alert(losses);
                 document.getElementById('losses').innerHTML = losses;
                 
                 played = wins + losses;
@@ -262,9 +277,10 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
                 decideRank(soloTier, flexTier);
             } 
             
-//            If two entries found, calculate both flex and solo ranks
+//                do calcs for both
             else if (entries == 2) {
                 
+                // get rank
                 soloTier = resp[summonerID][0].tier;
                 document.getElementById('soloTier').innerHTML = soloTier + " ";
                 soloDiv = resp[summonerID][0].entries[0].division;
@@ -279,14 +295,17 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
                 flexLp = resp[summonerID][1].entries[0].leaguePoints;
                 document.getElementById('flexLp').innerHTML = flexLp + "LP";
                 
+                // win ratio
                 soloWins = resp[summonerID][0].entries[0].wins;
                 flexWins = resp[summonerID][1].entries[0].wins;
                 wins = soloWins + flexWins;
+//                alert(wins);
                 document.getElementById('wins').innerHTML = wins;
                 
                 soloLosses = resp[summonerID][0].entries[0].losses;
                 flexLosses = resp[summonerID][1].entries[0].losses;
                 losses = soloLosses + flexLosses;
+//                alert(losses);
                 document.getElementById('losses').innerHTML = losses;
                 
                 played = wins + losses;
@@ -296,14 +315,62 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
                 winrate = Math.round(winrate);
                 document.getElementById('winrate').innerHTML = winrate + "%";
                 
-//                Start next function
                 decideRank(soloTier, flexTier);
                 
+              
+//                alert("solo and flex found");
             } else {
                 alert("not enough ranked games found");
             }
             
             summonerLookUp(SERVER, summonerID, SUMMONER_NAME_UI, played);
+            
+            
+//            if (resp.length = 1) {
+                
+                
+//                document.getElementById('flexTier').innerHTML = "Flex rank not found"
+//                
+//                soloTier = resp[summonerID][0].tier;
+//                document.getElementById('soloTier').innerHTML = soloTier + " ";
+//                soloDiv = resp[summonerID][0].entries[0].division;
+//                document.getElementById('soloDiv').innerHTML = soloDiv + " ";
+//                soloLp = resp[summonerID][0].entries[0].leaguePoints;
+//                document.getElementById('soloLp').innerHTML = soloLp + "LP";
+//            } 
+//            
+//            else if (resp.length = 1; && resp[summonerID][0].queue = "RANKED_FLEX_SR" )
+//                
+//                flexTier = resp[summonerID][0].tier;
+//                document.getElementById('soloTier').innerHTML = "Solo rank not found";
+//                
+//                document.getElementById('flexTier').innerHTML = flexTier + " ";
+//                flexDiv = resp[summonerID][0].entries[0].division;
+//                decideRank(soloTier, flexTier);
+//                document.getElementById('flexDiv').innerHTML = flexDiv + " ";
+//                flexLp = resp[summonerID][0].entries[0].leaguePoints;
+//                document.getElementById('flexLp').innerHTML = flexLp + "LP";
+//                
+//            }
+            
+           
+            
+//            if (resp.length = 2) {
+//            flexTier = resp[summonerID][1].tier;
+////            if (flexTier !== "") {
+////                flexTier == "not enough games";
+////            }
+//            document.getElementById('flexTier').innerHTML = flexTier + " ";
+//            flexDiv = resp[summonerID][1].entries[0].division;
+//            decideRank(soloTier, flexTier);
+//            document.getElementById('flexDiv').innerHTML = flexDiv + " ";
+//            flexLp = resp[summonerID][1].entries[0].leaguePoints;
+//            document.getElementById('flexLp').innerHTML = flexLp + "LP";
+//            } 
+//            else {
+//                alert ("gone wrong");
+//                
+//            }
         },
         
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -318,11 +385,9 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
     }
 }
 
-
-//Function to quantify which rank is higher
 function decideRank (soloTier, flexTier) {
-    
-//    if value is bronze, variable should equal 1, etc
+//    alert(soloTier);
+//    alert(flexTier);
     if (soloTier == "BRONZE") {
         sTier = 1;
     } else if (soloTier == "SILVER") {
@@ -364,26 +429,31 @@ function decideRank (soloTier, flexTier) {
         document.getElementById('errors').innerHTML = "Could not find flex rank";
     }
     
-//    If highest solo tier is greater than or equal to flex tier, class it as highest tier achieved
     if (sTier >= fTier) {
         highestTier = sTier;
         document.getElementById('playerTier').innerHTML = soloTier;
         document.getElementById('tierTitle').style.display = "inline";
-//        Else do the opposite
     } else {
         highestTier = fTier;
         document.getElementById('playerTier').innerHTML = flexTier;
         document.getElementById('tierTitle').style.display = "inline";
     }
-
-//    Modify url of tier icons, matching tier number to tier icon
+//    alert(sTier);
+//    alert(fTier);
     document.getElementById('soloRankIcon').src = 'images/rankIcons/' + sTier + '.png';
     document.getElementById('flexRankIcon').src = 'images/rankIcons/' + fTier + '.png';
+//    alert(fTier);
+    
+    
+//    alert(sTier);
 }
+//function testing (SERVER) {
+//    alert(SERVER);
+//}
+//
 
-
-//Function to split user down different paths depending on their highest rank
 function leagueAverage(){
+//    alert(highestTier);
     if (highestTier == 1) {
         bronze();
     } else if (highestTier == 2){
@@ -402,8 +472,6 @@ function leagueAverage(){
 }
 
 function bronze () {
-    
-//    Defines values for each dataset relating to rank
     bronzeCS = 114;
     document.getElementById('leagueCs').innerHTML = bronzeCS;
     
@@ -431,12 +499,10 @@ function bronze () {
     bronzeDmgT = 21021;
     document.getElementById('leagueDmgT').innerHTML = bronzeDmgT;
     
-    
-//    If the player's stats are better then average rank values, style the value green
+//    alert(averageCS);
     if (averageCS > bronzeCS){
         document.getElementById('cs').style.color = "green";
     }
-//    Otherwise style the value red
     else {
         document.getElementById('cs').style.color = "red";
     }
@@ -496,8 +562,6 @@ function bronze () {
     else {
         document.getElementById('winrate').style.color = "red";
     }
-    
-//    Start next function
     generateGamePlan();
     
 }
@@ -595,6 +659,7 @@ function silver () {
     }
     generateGamePlan();    
 }
+
 
 function goldeen() {
     
@@ -1070,19 +1135,18 @@ function challenger () {
 }
 
 
-//Function to display 'generate game plan' button
 function generateGamePlan () {
     document.getElementById('generateGamePlan').style.display = "block";
 }
 
-//Function for dynamically updating game plan 
 function gamePlan () {
-
-//    Sets the amount of 'hints' to 0
+//    var colour = document.getElementById('winrate').style.color;
+////    alert(colour);
+//    var value = document.getElementById('winrate').innerHTML;
+//    alert(value);
     hintCount = 0;
-    
-//    Display the pop-up with value summoner name at top
     document.getElementById('staticPlan').style.display = "block";
+  
     document.getElementById('planPage').style.display = "block";
     document.getElementById('keepUp').style.display = "block";
     document.getElementById('usernamePlan').innerHTML = sumName;
@@ -1090,12 +1154,10 @@ function gamePlan () {
     
     green = "";
 
-//    If the 'kills' value is red and the hint count is still less than 4, increment hintcount and display kills hint module
     if (document.getElementById('kills').style.color == "red" && hintCount < 4) {
         document.getElementById('killsContent').style.display = "inline-block";
         hintCount = hintCount + 1;
     } else {
-//        Else if it is green, add value 'kills' to variable called green to display for user
         green = green + "Kills |  ";
     }
     
@@ -1130,8 +1192,11 @@ function gamePlan () {
     
     
     if (document.getElementById('winrate').style.color == "red" && hintCount < 4) {
+//        alert("red");
         document.getElementById('winrateContent').style.display = "inline-block";
         hintCount = hintCount + 1;
+//        return(hintCount);
+//        alert(hintCount);
     } else {
         green = green + "Overall Winrate |  ";
     }
@@ -1160,23 +1225,43 @@ function gamePlan () {
         green = green + "Turrets Taken/Game |  ";
     }
     
-//    Display variable which now holds a string for every 'green' data item
     document.getElementById('killsGreen').innerHTML = green;
     
-    
-//    If there is an odd number of modules, display them full width
     if (hintCount == 1 || hintCount == 3) {
                 document.getElementsByClassName("helpContent")[1].style.width = "99%";
                 document.getElementsByClassName("helpContent")[3].style.width = "99%";
-    }    
+//            var elm = getElementsByClassName("helpContent")[0];
+//            if (elm) {
+//            elm.style.width = "99%";
+//            }
+    }
+    
 }
 
-//Function to close plan page when x is pressed
+
+//    if (averageCS < aCs){
+//        alert("lower than");
+//    }
+//        else if (averageCS > aCs){
+//            alert("higher than");
+//        }
+//    }    
+    
+    
+//    var cs = "cs";
+//    var lcs = $.extend({}, rank, cs );
+    
+//    alert(lcs);
+//    alert(rank);
+    
+//    alert(leagueAverageCS);
+    
 function closePlan(){
+
     document.getElementById('planPage').style.display = "none";
 }
 
-//Function to clear error when another action is taken
+
 function clearerror() {
      document.getElementById('errors').innerHTML = "";
 }

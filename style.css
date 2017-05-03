@@ -655,37 +655,26 @@ div#loader {
         visibility: hidden;
     }
     
+    body {
+/*        background-image: linear-gradient(to top, #c0c8ce 50%, #ffffff 100%);*/
+       background: radial-gradient(ellipse at center, #FFFFFF 0%, #496080 150%);
+    }
+    
     input[type=searchBar] {
         width: 250px;
-        border: solid 2px;
     }
     
     input[type=submit] {
         margin-bottom: 25px;
-        border: solid 2px;
     }
     input[type=button] {
        
         margin-top: 475px;
-        border: solid 2px;
     }
     
    
     .information {
         margin-top:50px;
-    }
-    
-    select {
-        border: solid 2px;
-        height: 45px;
-    }
-    
-    #pageTwo {
-        margin: 0px;
-        max-width: 100%;
-        width: 100%;
-        overflow-x: hidden;
-        
     }
     
 
