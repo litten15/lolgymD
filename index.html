@@ -6,119 +6,129 @@
   <meta name="description" content="Personalised Trainer for League of Legends">
   <meta name="author" content="Archie Riley">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    Icon link-->
   <link rel="icon" href="images/icon.png" type="image/png" sizes="16x16">
+<!--    Stylesheet link-->
   <link rel="stylesheet" type="text/css" href="style.css">
+<!--    Jquery link-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--    Link to script-->
   <script src="script.js"></script>
+<!--    Font link-->
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
     
-<!--    <div class="bodyCon">-->
+<!--When the body loads trigger hide function-->
 <body onload="hide();" id="body">
+    
+<!--    Loading wheel div-->
     <div id="loader" style="display: none;">
-<p class="loadingText">LOADING</p>
-              </div>
+        <p class="loadingText">LOADING</p>
+    </div>
+    
+<!--    Header wrapper-->
     <div class="planWrapper">
-    
-<div class="logo">
-    <a href=""><img src="images/lolGymLogo.png" class="logoImg" id="logoImg"></a>
-</div>
-
-    <div id="pageOne">
-    <div id="imgContainer">
-    <img src="images/banner2.png" class="bannerImg" alt="L.O.L Gym Logo">
-        
-        <div id="inputContainer">
-            <p id="errors" class="errors"></p>
-            <input type="searchBar" id="userName" placeholder=" SUMMONER NAME..."/>
-                <select id="local">
-                  <option value="ru">RU</option>
-                  <option value="lan">LAN</option>
-                  <option value="eune">EUNE</option>
-                  <option value="oce">OCE</option>
-                  <option value="tr">TR</option>
-                  <option value="jp">JP</option>
-                  <option value="kr">KR</option>
-                  <option value="br">BR</option>
-                  <option value="na">NA</option>
-                  <option value="euw" selected="true">EUW</option>
-                  <option value="las">LAS</option>
-                </select><br/>
-    
-<input type="submit" id="searchloader" value="SEARCH" onclick="submitInfo();clearerror();"/>
-            
-    <span id="serverType"></span>
-    <span id="sumName"></span>
-    
-            
+        <div class="logo">
+            <a href="">
+            <img src="images/lolGymLogo.png" class="logoImg" id="logoImg" alt="LOL GYM Logo">
+            </a>
         </div>
-<div id="headingOne">
-    <h1>THE EASIEST WAY TO TRAIN</h1>
-</div>
-    </div>
-<div class="information">
-<h2>HOW IT WORKS</h2>
-    <div class="divider spacer" > 
-    </div>
-    
-    <div class="divider">
-        <img src="images/supportIcon.png" class="icon">
-    </div>
-    
-    <div class="divider">
-        <img src="images/fighterIcon.png" class="icon">
-    </div>
-    
-    <div class="divider spacer">
-    </div>
-    
-    <div class="divider">
-        <p class="infoText">LoLGym lets you search to learn about yours or a friends stats and see how they compare to your league average</p>
-    </div>
-    
-    <div class="divider">
-       <p class="infoText">Automatically generate a tailored game plan to help you improve your in-game performace and climb the ladder</p>
-    </div>
-    
-    
-    
-</div>
+<!--    Div for homescreen-->
+    <div id="pageOne">
+        <div id="imgContainer">
+            <img src="images/banner2.png" class="bannerImg" alt="Decorative banner">
+                <div id="inputContainer">
+<!--                    Dynamic error-div-->
+                    <p id="errors" class="errors"></p>
+<!--                    Search bar input-->
+                        <input type="searchBar" id="userName" placeholder=" SUMMONER NAME..."/>
+<!--                            Region selector-->
+                            <select id="local">
+                                  <option value="ru">RU</option>
+                                  <option value="lan">LAN</option>
+                                  <option value="eune">EUNE</option>
+                                  <option value="oce">OCE</option>
+                                  <option value="tr">TR</option>
+                                  <option value="jp">JP</option>
+                                  <option value="kr">KR</option>
+                                  <option value="br">BR</option>
+                                  <option value="na">NA</option>
+                                  <option value="euw" selected="true">EUW</option>
+                                  <option value="las">LAS</option>
+                            </select><br/>
+                    <!--Search button-->
+                    <input type="submit" id="searchloader" value="SEARCH" onclick="submitInfo();clearerror();"/>
 
+                    <!--    Input values from user to be read by javacript-->
+                    <span id="serverType"></span>
+                    <span id="sumName"></span>        
+                </div>
+           
+<!--            Main heading-->
+            <div id="headingOne">
+                <h1>THE EASIEST WAY TO TRAIN</h1>
+            </div>
+            
+    </div>
+        
+<!--        Information section below banner-->
+        <div class="information">
+            <h2>HOW IT WORKS</h2>
+                <div class="divider spacer"> 
+                </div>
+    
+                <div class="divider">
+                    <img src="images/supportIcon.png" class="icon">
+                </div>
+    
+                <div class="divider">
+                    <img src="images/fighterIcon.png" class="icon">
+                </div>
+    
+                <div class="divider spacer">
+                </div>
+    
+                <div class="divider">
+                    <p class="infoText">LoLGym lets you search to learn about yours or a friends stats and see how they compare to your league average</p>
+                </div>
+
+                <div class="divider">
+                   <p class="infoText">Automatically generate a tailored game plan to help you improve your in-game performace and climb the ladder</p>
+                </div>
+        </div>
     </div>
 
     <br>
     
+<!--    Div for second page of app-->
     <div id="pageTwo">
         <div class="topBar">
+<!--            Div for top container, span tags get updated with users data-->
             <div class="topBarContainer">
-        <div class="fiths">
-            
-        </div>
-            
-        <div class="fiths">
-            <span id="username" class="title"></span>
-            <p class="subTitle">(Level <span id="sLevel"></span>)</p>
-            <img id="soloRankIcon" src="" class="rankIcons">
-            <p class="rankText" id="soloi">SOLO <span id="soloTier"></span><span id="soloDiv"></span>(<span id="soloLp"></span>)</p>
-            
-        </div>
+                <div class="fiths"></div>
+                    <div class="fiths">
+                        <span id="username" class="title"></span>
+                        <p class="subTitle">(Level <span id="sLevel"></span>)</p>
+                        <img id="soloRankIcon" src="" class="rankIcons">
+                        <p class="rankText" id="soloi">SOLO <span id="soloTier"></span><span id="soloDiv"></span>(<span id="soloLp"></span>)</p>
+                    </div>
                        
-        <div class="fiths">
-            <img id="flexRankIcon" src="" class="rankIcons">
-            <p class="rankText" id="flexi">FLEX <span id="flexTier"></span><span id="flexDiv"></span>(<span id="flexLp"></span>)</p>
-        </div>
-            
-    
-       <img src="images/blitzBanner.png" class="blitzBanner">
-       
-            
-        </div>
+                    <div class="fiths">
+                        <img id="flexRankIcon" src="" class="rankIcons">
+                        <p class="rankText" id="flexi">FLEX <span id="flexTier"></span><span id="flexDiv"></span>(<span id="flexLp"></span>)</p>
+                    </div>
+<!--                    Div for black and white banner of blitzcrank-->
+                    <img src="images/blitzBanner.png" alt="Decorative banner image" class="blitzBanner">
             </div>
+        </div>
+        
+<!--        Main stats module-->
         <div class="statsWrapper">
-                <div class="titleContent">
-                    <p class="titles">WINS AND LOSSES</p>
-             </div>
-            
+<!--            Subheadings-->
+            <div class="titleContent">
+                <p class="titles">WINS AND LOSSES</p>
+            </div>
+<!--                Boxes waiting for data-->
                 <div class="winsData">
                     <div class="dataBox"><p class="dataPoints">PLAYED<br><span id="played"></span></p></div>
                     <div class="dataBoxTwo"><p class="dataPoints">WON<br><span id ="wins"></span></p></div>
@@ -129,6 +139,7 @@
              <div class="titleContent">
                     <p class="titles">AVERAGE KDA</p>
              </div>
+            
                 <div class="winsData">
                     <div class="dataBoxThree"><p class="dataPoints">KILLS<br><span id="kills"></span></p></div>
                     <div class="dataBoxFour"><p class="dataPoints">DEATHS<br><span id ="deaths"></span></p></div>
@@ -138,123 +149,120 @@
             <div class="titleContent">
                     <p class="titles">AVERAGE DAMAGES</p>
              </div>
+            
                 <div class="winsData">
                     <div class="dataBoxFive"><p class="dataPoints">DAMAGE DEALT<br><span id ="dmgD"></span></p></div>
                     <div class="dataBoxSix"><p class="dataPoints">DAMAGE TAKEN<br><span id="dmgT"></span></p></div>
-                    
                 </div>
             
             <div class="titleContent">
                     <p class="titles">AVERAGE OBJECTIVES</p>
              </div>
+            
                 <div class="winsData">
                     <div class="dataBoxThree"><p class="dataPoints">CREEP SCORE<br><span id="cs"></span></p></div>
                     <div class="dataBoxFour"><p class="dataPoints">GOLD PER GAME<br><span id ="aGold"></span></p></div>
                     <div class="dataBoxThree"><p class="dataPoints">TURRETS PER GAME<br><span id="turrets"></span></p></div>
-                    
-                </div>
-            
-            
-                    
-        </div>
+                </div>                    
+            </div>
+        
     <div id="stats">
- 
-    <div class="wrapper">
-<span id="username"></span><p id="intro" style="display:none;"></p>
-    
-   
-   
+        <div class="wrapper">
+            <span id="username"></span><p id="intro" style="display:none;"></p>
         </div>
     
-    <div class="wrapper">
-<span id="playerTier" style="display:none;"></span><p id="tierTitle" style="display:none;"></p>
-<div style="display:none;">
-    <div class="winrate">
-   
-    Winrate: <span id="leagueWinrate"></span><br>
-    </div>
+        <div class="wrapper">
+            <span id="playerTier" style="display:none;"></span><p id="tierTitle" style="display:none;"></p>
+                <div style="display:none;">
+                    <div class="winrate">
+                        <span id="leagueWinrate"></span><br>
+                    </div>
     
-    <div class="kda">
-    Average KDA: <span id="leagueKills"></span><span id="leagueDeaths"></span><span id="leagueAssists"></span><br>
-    Damage dealt/game: <span id="leagueDmgD"></span><br>
-    Damage taken/game: <span id="leagueDmgT"></span>
-    <br>
-    </div>
+                    <div class="kda">
+                        <span id="leagueKills"></span><span id="leagueDeaths"></span><span id="leagueAssists"></span><br>
+                        <span id="leagueDmgD"></span><br>
+                        <span id="leagueDmgT"></span>
+                    <br>
+                    </div>
     
-    <div class="gold">
-    CS/Game: <span id="leagueCs"></span><br>
-    Gold/Game: <span id="leagueGold"></span><br>
-    Turrets/Game: <span id="leagueTurrets"></span>
-    <br>
-    </div>
-    </div>
+                    <div class="gold">
+                        <span id="leagueCs"></span><br>
+                        <span id="leagueGold"></span><br>
+                        <span id="leagueTurrets"></span>
+                    <br>
+                    </div>
+             </div>
         </div>
     </div>
     <br>
+    
+<!--    Input for create game plan button-->
     <input type="button" value="CREATE TRAINING PLAN" id="generateGamePlan" onClick="gamePlan();"/>
     </div>
-        <div class="planPage" id="planPage" style="display:none;">
         
-    <div id="planPage" class="plan">
-        
-        <div id="staticPlan">
-        <p class="planH1">TRAINING PLAN FOR:  <span id="usernamePlan"></span></p>
-            <img src="images/xButton.png" class="closeButton" onClick="closePlan()">
-        </div>
+<!--        Training plan page-->
+        <div class="planPage" id="planPage" style="display:none;">    
+            <div id="planPage" class="plan">
+                <div id="staticPlan">
+                    <p class="planH1">TRAINING PLAN FOR:  <span id="usernamePlan"></span></p>
+                    <img src="images/xButton.png" class="closeButton" onClick="closePlan()">
+                </div>
         
         <div id="keepUp" class="keepUp">
-         <div class="moduleH1">
+            <div class="moduleH1">
                 <p class="moduleTextHead">KEEP TO A GOOD STANDARD:</p>
             </div>
-        <div class="keepUpBody">
-            <div id="helpHider">
+            <div class="keepUpBody">
+                <div id="helpHider">
                     <p class="h4">
                         <span id="killsGreen"></span>
                     </p>
+                </div>
             </div>
-        </div>
         </div>
         
         <div id = "winrateContent" class="helpContent">
-        <div class="moduleH1">
+<!--            Module heading-->
+            <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Overall Winrate</p>
                 <img src="images/informationButton.png" class="informationButton">
             </div>
             
+<!--            Module Body-->
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>To win more games, figure out your strengths and weaknesses and use it to your advantage.</li>
-                        <li>Practice several different roles and champions to play when you can't play your main.</li>
-                    </ul>
+                        <ul>
+                            <li>To win more games, figure out your strengths and weaknesses and use it to your advantage.</li>
+                            <li>Practice several different roles and champions to play when you can't play your main.</li>
+                        </ul>
                 </div>
+                
                 <p class="h3">Video Guides:</p>
-               <div class="videos">
-                    
+                <div class="videos">
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=YbL0H_jI8xk" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/YbL0H_jI8xk/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/YbL0H_jI8xk/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=UASWt5mwr6M" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/UASWt5mwr6M/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/UASWt5mwr6M/sddefault.jpg">
                         </a>
                     </div>
+                    
                     <div class="videoLink">
-                        <a href="httpss://www.youtube.com/watch?v=pXFE20i3xIM" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/pXFE20i3xIM/sddefault.jpg">
+                        <a href="https://www.youtube.com/watch?v=pXFE20i3xIM" target="_blank">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/pXFE20i3xIM/sddefault.jpg">
                         </a>
                     </div>
-                </div>
+                 </div>
             </div>
 
         </div>
 
         <div id = "dmgDContent" class="helpContent">
-            
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Damage Dealing</p>
                 <img src="images/informationButton.png" class="informationButton">
@@ -263,42 +271,38 @@
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>Learn how to harass/trade effectively, doing so can snowball you to victory.</li>
-                        <li>Every champion in LoL has potential for high damage when played right, learn how your main can deal damage.</li>
-                    </ul>
+                        <ul>
+                            <li>Learn how to harass/trade effectively, doing so can snowball you to victory.</li>
+                            <li>Every champion in LoL has potential for high damage when played right, learn how your main can deal damage.</li>
+                        </ul>
                 </div>
+                
                 <p class="h3">Video Guides:</p>
+                
                 <div class="videos">
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=0baNEJoTyEE" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/0baNEJoTyEE/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/0baNEJoTyEE/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=zRHVlFwnbqU" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/zRHVlFwnbqU/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/zRHVlFwnbqU/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=n3Fqx70XNT0" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/n3Fqx70XNT0/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/n3Fqx70XNT0/sddefault.jpg">
                         </a>
                     </div>
-<!--
-                    <iframe width="100" height="60" src="httpss://www.youtube.com/embed/BGtROJeMPeE" frameborder="0" allowfullscreen></iframe> 
-                    <iframe width="100" height="60" src="httpss://www.youtube.com/embed/BGtROJeMPeE" frameborder="0" allowfullscreen></iframe> 
-                    <iframe width="100" height="60" src="https://www.youtube.com/embed/BGtROJeMPeE" frameborder="0" allowfullscreen></iframe>
--->
                 </div>
             </div>
-            
         </div>
 
-        <div id = "dmgTContent" class="helpContent">
-        <div class="moduleH1">
+        <div id="dmgTContent" class="helpContent">
+            <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Damage Taking</p>
                 <img src="images/informationButton.png" class="informationButton">
             </div>
@@ -306,28 +310,29 @@
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>Every skillshot in LoL can be dodged, always bare in mind what abilities your enemy has and try to predict their next move.</li>
-                        <li>Learn when to play safe, often staying out of the enemies’ auto-attack range is enough to avoid harass and taking damage.</li>
-                    </ul>
+                        <ul>
+                            <li>Every skillshot in LoL can be dodged, always bare in mind what abilities your enemy has and try to predict their next move.</li>
+                            <li>Learn when to play safe, often staying out of the enemies’ auto-attack range is enough to avoid harass and taking damage.</li>
+                        </ul>
                 </div>
+                
                 <p class="h3">Video Guides:</p>
-               <div class="videos">
+                <div class="videos">
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=Js6_BuSsnQU" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/Js6_BuSsnQU/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/Js6_BuSsnQU/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=chUnDzov034" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/chUnDzov034/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/chUnDzov034/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=sI9MWyO3lzc" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/sI9MWyO3lzc/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/sI9MWyO3lzc/sddefault.jpg">
                         </a>
                     </div>
                 </div>
@@ -335,7 +340,7 @@
         </div>
 
         <div id = "csContent" class="helpContent">
-        <div class="moduleH1">
+            <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Creep Score</p>
                 <img src="images/informationButton.png" class="informationButton">
             </div>
@@ -343,28 +348,28 @@
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>Being able to farm effectively is the biggest difference between high and low level players.</li>
-                        <li>There is an opportunity for mastery within farming, practice makes perfect, try a custom game with no distractions.</li>
-                    </ul>
+                        <ul>
+                            <li>Being able to farm effectively is the biggest difference between high and low level players.</li>
+                            <li>There is an opportunity for mastery within farming, practice makes perfect, try a custom game with no distractions.</li>
+                        </ul>
                 </div>
                 <p class="h3">Video Guides:</p>
                  <div class="videos">
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=mHtt18Wb0yQ" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/mHtt18Wb0yQ/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/mHtt18Wb0yQ/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=Bv12M1nhsZA" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/Bv12M1nhsZA/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/Bv12M1nhsZA/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=2G0osoXFCck" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/2G0osoXFCck/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/2G0osoXFCck/sddefault.jpg">
                         </a>
                     </div>
                 </div>
@@ -372,7 +377,7 @@
         </div>
 
         <div id = "goldContent" class="helpContent">
-        <div class="moduleH1">
+            <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Gold per Minute</p>
                 <img src="images/informationButton.png" class="informationButton">
             </div>
@@ -380,28 +385,28 @@
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>The faster gold is earned directly improves your stats and abilities, learning how to efficiently earn gold is key.</li>
-                        <li>Learn the best way to earn gold for your role and specialise in the mechanics of it.</li>
-                    </ul>
+                        <ul>
+                            <li>The faster gold is earned directly improves your stats and abilities, learning how to efficiently earn gold is key.</li>
+                            <li>Learn the best way to earn gold for your role and specialise in the mechanics of it.</li>
+                        </ul>
                 </div>
                 <p class="h3">Video Guides:</p>
                 <div class="videos">
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=tPKhGdmh2Jo" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/tPKhGdmh2Jo/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/tPKhGdmh2Jo/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=NPiHYs-ObE8" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/NPiHYs-ObE8/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/NPiHYs-ObE8/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=nB8zU35_b7g" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/nB8zU35_b7g/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/nB8zU35_b7g/sddefault.jpg">
                         </a>
                     </div>
                 </div>
@@ -409,7 +414,7 @@
         </div>
         
         <div id = "killsContent" class="helpContent">
-        <div class="moduleH1">
+            <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Kills per Game</p>
                 <img src="images/informationButton.png" class="informationButton">
             </div>
@@ -417,28 +422,28 @@
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>Learn the damage your auto-attack does at every level and know when you can kill secure without any danger.</li>
-                        <li>Using a summoner spell is often the best way to get more kills, using Flash tactically or Ignite for pure damage to kill the enemy.</li>
-                    </ul>
+                        <ul>
+                            <li>Learn the damage your auto-attack does at every level and know when you can kill secure without any danger.</li>
+                            <li>Using a summoner spell is often the best way to get more kills, using Flash tactically or Ignite for pure damage to kill the enemy.</li>
+                        </ul>
                 </div>
                 <p class="h3">Video Guides:</p>
-               <div class="videos">
+                <div class="videos">
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=obXVBOJRMX4" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/obXVBOJRMX4/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/obXVBOJRMX4/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=CBnnB5bjkts" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/CBnnB5bjkts/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/CBnnB5bjkts/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=Rm0g_tA8InU" target="_blank">
-                            <img class="thumbnail" src="https://img.youtube.com/vi/Rm0g_tA8InU/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="https://img.youtube.com/vi/Rm0g_tA8InU/sddefault.jpg">
                         </a>
                     </div>
                 </div>
@@ -464,27 +469,26 @@
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=5CykuESpqQc" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/5CykuESpqQc/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/5CykuESpqQc/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=n3Fqx70XNT0" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/n3Fqx70XNT0/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/n3Fqx70XNT0/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=rzzC0k2Dgto" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/rzzC0k2Dgto/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/rzzC0k2Dgto/sddefault.jpg">
                         </a>
                     </div>
                 </div>
             </div>
-        
         </div>
         
         <div id = "deathsContent" class="helpContent">
-        <div class="moduleH1">
+            <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Deaths per Game</p>
                 <img src="images/informationButton.png" class="informationButton">
             </div>
@@ -502,18 +506,18 @@
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=RQdZSs9_kV4" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/RQdZSs9_kV4/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/RQdZSs9_kV4/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=tdQSuM0oRhw" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/tdQSuM0oRhw/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/tdQSuM0oRhw/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=RarZ9BnaQRo" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/RarZ9BnaQRo/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/RarZ9BnaQRo/sddefault.jpg">
                         </a>
                     </div>
                 </div>
@@ -529,28 +533,28 @@
             <div class="moduleBody">
                 <div class="tips">
                     <p class="h3">Tips:</p>
-                    <ul>
-                        <li>Sometimes dying for a tower is worth it, the pressure you can apply with a destroyed tower can win a lane.</li>
-                        <li>Some champions such as Ziggs deal bonus damage to towers, always look out for them on the enemy team and play accordingly. </li>
-                    </ul>
+                <ul>
+                    <li>Sometimes dying for a tower is worth it, the pressure you can apply with a destroyed tower can win a lane.</li>
+                    <li>Some champions such as Ziggs deal bonus damage to towers, always look out for them on the enemy team and play accordingly. </li>
+                </ul>
                 </div>
                 <p class="h3">Video Guides:</p>
                <div class="videos">
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=9iX9EmE3yHk" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/9iX9EmE3yHk/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/9iX9EmE3yHk/sddefault.jpg">
                         </a>
                     </div>
                     
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=sZiIRcqBMhg" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/sZiIRcqBMhg/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/sZiIRcqBMhg/sddefault.jpg">
                         </a>
                     </div>
                     <div class="videoLink">
                         <a href="https://www.youtube.com/watch?v=Fg-o2-N2WKc" target="_blank">
-                            <img class="thumbnail" src="http://img.youtube.com/vi/Fg-o2-N2WKc/sddefault.jpg">
+                            <img class="thumbnail" alt="Link to youtube video guide" src="http://img.youtube.com/vi/Fg-o2-N2WKc/sddefault.jpg">
                         </a>
                     </div>
                 </div>
@@ -559,32 +563,19 @@
         
     </div>
     </div>
-    <div class="bar">
-    </div>
+    
+<!--    Footer bar-->
+    <div class="bar"></div>
+        
+<!--    Footer-->
     <div class="footer">
         <p class="footerText">
         <a class="footerText" href="https://litten15.github.io/port/">Archie Riley</a>
         - 2017</p>
     </div>
-        <p class="footerText">
+    <p class="footerText">
         LoL Gym isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
-        </p>
-        </div>
-    <script>
-        var invocation = new XMLHttpRequest();
-        var url = 'http:/aidenmaciver.com/lolgym/index.html';
-   
-        function callOtherDomain() {
-          if(invocation) {    
-            invocation.open('GET', url, true);
-            invocation.onreadystatechange = handler;
-            invocation.send(); 
-          }
-        }
-
-    
-    
-    </script>
+    </p>
+    </div>
     </body>
-<!--    </div>-->
 </html>
