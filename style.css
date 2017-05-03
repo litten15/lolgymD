@@ -680,6 +680,14 @@ div#loader {
         height: 45px;
     }
     
+    #pageTwo {
+        margin: 0px;
+        max-width: 100%;
+        width: 100%;
+        overflow-x: hidden;
+        
+    }
+    
 
 }
 
