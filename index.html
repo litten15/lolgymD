@@ -586,9 +586,11 @@
     </body>
     
     <script>
+//        When a key is pressed in search bar
         document.getElementById('userName').onkeypress = function(e){
         if (!e) e = window.event;
         var keyCode = e.keyCode || e.which;
+//        Key code for 'return' is 13
         if (keyCode == '13'){
         submitInfo();
         clearerror();

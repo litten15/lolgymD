@@ -30,6 +30,9 @@ function submitInfo() {
     
 //    Validation, replaces spaces with no space and makes all lower case
     var SUMMONER_NAME = SUMMONER_NAME_UI.replace(" ", "");
+    SUMMONER_NAME = SUMMONER_NAME.replace(" ", "");
+    SUMMONER_NAME = SUMMONER_NAME.replace(" ", "");
+    SUMMONER_NAME = SUMMONER_NAME.replace(" ", "");
     SUMMONER_NAME = SUMMONER_NAME.toLowerCase().trim();
     
 //    if summoner name is not empty, then
@@ -263,7 +266,7 @@ function rankedLookup(summonerID, SERVER, SUMMONER_NAME_UI) {
             } 
             
 //            If two entries found, calculate both flex and solo ranks
-            else if (entries == 2) {
+            else if (entries == 2 || entries == 3) {
                 
                 soloTier = resp[summonerID][0].tier;
                 document.getElementById('soloTier').innerHTML = soloTier + " ";
@@ -1185,8 +1188,17 @@ function gamePlan () {
     
 //    If there is an odd number of modules, display them full width
     if (hintCount == 1 || hintCount == 3) {
-                document.getElementsByClassName("helpContent")[1].style.width = "99%";
-                document.getElementsByClassName("helpContent")[3].style.width = "99%";
+//        alert(hintCount);
+                for (var i = 0; i < 10; i++) {
+                     document.getElementsByClassName("helpContent")[i].style.width = "99%";
+                    $("ul").css({"min-height":"40px"});
+                }
+                
+                       
+//                document.getElementsByClassName("helpContent")[1].style.width = "99%";
+//                document.getElementsByClassName("helpContent")[2].style.width = "99%";
+//                document.getElementsByClassName("helpContent")[3].style.width = "99%";
+//                document.getElementsByClassName("helpContent")[4].style.width = "99%";
     }    
 }
 
