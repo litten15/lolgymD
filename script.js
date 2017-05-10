@@ -38,7 +38,7 @@ function submitInfo() {
 //    if summoner name is not empty, then
     if (SUMMONER_NAME !== "") {
         
-//        Hide the loader from user
+//        Show the loader to the user
         $("#loader").fadeIn(500);
         
 //        Call to the api, the url is combining proxy, server, summoner name and api key
