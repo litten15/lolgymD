@@ -57,8 +57,10 @@
                                   <option value="euw" selected="true">EUW</option>
                                   <option value="las">LAS</option>
                             </select><br/>
+                    <label for="local">Search region for the account</label>
                     <!--Search button-->
                     <input type="submit" id="searchloader" value="SEARCH" onclick="submitInfo();clearerror();"/>
+                    <label for="searchLoader" style="display:none;">Search for your summoner account </label>
 
 <!--
                     <span id="serverType"></span>
@@ -81,11 +83,11 @@
                 </div>
     
                 <div class="divider">
-                    <img src="images/supportIcon.png" class="icon">
+                    <img src="images/supportIcon.png" class="icon" alt="fighter icon">
                 </div>
     
                 <div class="divider">
-                    <img src="images/fighterIcon.png" class="icon">
+                    <img src="images/fighterIcon.png" class="icon" alt="support icon">
                 </div>
     
                 <div class="divider spacer">
@@ -112,12 +114,12 @@
                     <div class="fiths">
                         <span id="username" class="title"></span>
                         <p class="subTitle">(Level <span id="sLevel"></span>)</p>
-                        <img id="soloRankIcon" src="" class="rankIcons">
+                        <img id="soloRankIcon" src="" class="rankIcons" alt="rank icon">
                         <p class="rankText" id="soloi">SOLO <span id="soloTier"></span><span id="soloDiv"></span>(<span id="soloLp"></span>)</p>
                     </div>
                        
                     <div class="fiths">
-                        <img id="flexRankIcon" src="" class="rankIcons">
+                        <img id="flexRankIcon" src="" class="rankIcons" alt="rank icon">
                         <p class="rankText" id="flexi">FLEX <span id="flexTier"></span><span id="flexDiv"></span>(<span id="flexLp"></span>)</p>
                     </div>
 <!--                    Div for black and white banner of blitzcrank-->
@@ -213,7 +215,7 @@
             <div id="planPage" class="plan">
                 <div id="staticPlan">
                     <p class="planH1">TRAINING PLAN FOR:  <span id="usernamePlan"></span></p>
-                    <img src="images/xButton.png" class="closeButton" onClick="closePlan()">
+                    <img src="images/xButton.png" alt="close button" class="closeButton" onClick="closePlan()">
                 </div>
         
         <div id="keepUp" class="keepUp">
@@ -233,7 +235,7 @@
 <!--            Module heading-->
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Overall Winrate</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
 <!--            Module Body-->
@@ -273,7 +275,7 @@
         <div id = "dmgDContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Damage Dealing</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -312,7 +314,7 @@
         <div id="dmgTContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Damage Taking</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -350,7 +352,7 @@
         <div id = "csContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Creep Score</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -387,7 +389,7 @@
         <div id = "goldContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Gold per Minute</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -424,7 +426,7 @@
         <div id = "killsContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Kills per Game</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -461,7 +463,7 @@
         <div id = "assistsContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Assists per Game</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -498,7 +500,7 @@
         <div id = "deathsContent" class="helpContent">
             <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Deaths per Game</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info"  class="informationButton">
             </div>
             
             <div class="moduleBody">
@@ -535,7 +537,7 @@
         <div id = "turretsContent" class="helpContent">
         <div class="moduleH1">
                 <p class="moduleTextHead">TRAINING: Turrets per Game</p>
-                <img src="images/informationButton.png" class="informationButton">
+                <img src="images/informationButton.png" alt="icon for more info" class="informationButton">
             </div>
             
             <div class="moduleBody">
